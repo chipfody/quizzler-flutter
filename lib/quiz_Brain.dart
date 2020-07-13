@@ -1,7 +1,8 @@
-import'question.dart';
+import 'main.dart';
+import 'question.dart';
+
 
 class QuizBrain {
-
   int _questionNumber = 0;
 
   List<Question> _questionBank = [
@@ -34,7 +35,6 @@ class QuizBrain {
     if (_questionNumber < _questionBank.length - 1) {
       _questionNumber++;
     }
-
   }
 
   String getQuestionText() {
@@ -43,5 +43,20 @@ class QuizBrain {
 
   bool getQuestionAnswer() {
     return _questionBank[_questionNumber].questionAnswer;
+  }
+
+  bool isFinished() {
+    print (_questionNumber);
+    if(_questionNumber >= _questionBank.length - 1) {
+      print ('returning true');
+      return true;
+    } else {
+      print ('returning false');
+      return false;
+    }
+  }
+
+  void reset() {
+    _questionNumber = -1;
   }
 }
